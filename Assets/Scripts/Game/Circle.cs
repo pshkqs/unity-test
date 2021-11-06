@@ -8,6 +8,7 @@ namespace Game
     public class Circle : MonoBehaviour
     {
         [SerializeField] private ParticleSystem _particle;
+        
         private CircleSettings _settings;
 
         public void Init(in CircleSettings settings)

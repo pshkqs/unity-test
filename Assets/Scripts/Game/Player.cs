@@ -30,15 +30,15 @@ namespace Game
     {
         public int Score => _score.Current;
         
-        private Score _score;
         [SerializeField] private int _health;
-
         [SerializeField] private Spawner _spawner;
         
         [SerializeField] private UnityEvent<int> _healthChanged;
         [SerializeField] private UnityEvent<Score> _scoreChanged;
         [SerializeField] private UnityEvent<Score> _gameOver;
 
+        private Score _score;
+        
         private void Start()
         {
             _healthChanged?.Invoke(_health);
