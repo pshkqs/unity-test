@@ -46,8 +46,8 @@ namespace Game
                 Destination = destination,
                 Speed = _speedRate.Evaluate(_player.Score), 
                 Color = GetRandomColor(),
-                Damage = Random.Range(0, 6),
-                Score = Random.Range(0, 4),
+                Damage = Random.Range(1, 6),
+                Score = Random.Range(1, 4),
                 Destroyed = _player.AddScore,
                 ReachedDestination = _player.TakeDamage
             };
