@@ -1,44 +1,21 @@
-﻿using System;
-using System.Threading;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.Events;
 
 namespace Game
 {
-    public struct Score
-    {
-        public int Current => _current;
-
-        public int Max
-        {
-            get => PlayerPrefs.GetInt("max-score");
-            private set => PlayerPrefs.SetInt("max-score", value);
-        }
-
-       private int _current;
-
-        public void AddScore(int value)
-        {
-            _current += value;
-
-            if (_current > Max)
-                Max = _current;
-        }
-    }
-
     public class Player : MonoBehaviour
     {
         public int Score => _score.Current;
-        
+
         [SerializeField] private int _health;
         [SerializeField] private Spawner _spawner;
-        
+
         [SerializeField] private UnityEvent<int> _healthChanged;
         [SerializeField] private UnityEvent<Score> _scoreChanged;
         [SerializeField] private UnityEvent<Score> _gameOver;
 
         private Score _score;
-        
+
         private void Start()
         {
             _healthChanged?.Invoke(_health);
@@ -70,6 +47,27 @@ namespace Game
 
             _score.AddScore(value);
             _scoreChanged?.Invoke(_score);
+        }
+    }
+
+    public struct Score
+    {
+        public int Current => _current;
+
+        public int Max
+        {
+            get => PlayerPrefs.GetInt("max-score");
+            private set => PlayerPrefs.SetInt("max-score", value);
+        }
+
+        private int _current;
+
+        public void AddScore(int value)
+        {
+            _current += value;
+
+            if (_current > Max)
+                Max = _current;
         }
     }
 }

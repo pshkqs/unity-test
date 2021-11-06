@@ -1,6 +1,5 @@
 using System;
 using UnityEngine;
-using Random = UnityEngine.Random;
 
 namespace Game
 {
@@ -44,5 +43,16 @@ namespace Game
             PlayParticle();
             Destroy(gameObject);
         }
+    }
+    
+    public struct CircleSettings
+    {
+        public Vector3 Destination;
+        public Color Color;
+        public float Speed;
+        public int Damage;
+        public int Score;
+        public Action<int> ReachedDestination;
+        public Action<int> Destroyed;
     }
 }

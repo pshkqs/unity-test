@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using UnityEditor;
 using UnityEngine;
 
 namespace Game
@@ -71,20 +70,6 @@ namespace Game
             }
         
             return new Color(colors[0], colors[1], colors[2]);
-        }
-    }
-
-    [CustomEditor(typeof(Spawner))]
-    public class SpawnerExtensions : Editor
-    {
-        public override void OnInspectorGUI()
-        {
-            base.OnInspectorGUI();
-
-            if (GUILayout.Button("Spawn"))
-            {
-                (target as Spawner)?.StartSpawning();
-            }
         }
     }
 }
